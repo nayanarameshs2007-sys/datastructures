@@ -227,12 +227,22 @@ Comparisons: 18
 
 ---
 ## Comparison Table
-Parameter            K-Way Merge      Pairwise Merge
----------------------------------------------------
-Heap Size            3                N/A
-Comparisons          21               18
-Time Complexity      O(n log k)       O(nk)
-Space Complexity     O(k)             O(n)
+### Comparison Table
+
+| Parameter                 | K-Way Merge Using Min Heap | Pairwise Merge                            |
+| ------------------------- | -------------------------- | ----------------------------------------- |
+| **Heap Size**             | `k = 3`                    | Not applicable                            |
+| **Number of Comparisons** | Depends on heap operations | **18** for the given input                |
+| **Time Complexity**       | **O(n log k)**             | **O(nk)** for sequential pairwise merging |
+| **Space Complexity**      | **O(k)** auxiliary space   | **O(n)** for intermediate arrays          |
+
+Where:
+
+* `n` = total number of elements
+* `k` = number of sorted lists
+* For this problem, `n = 12` and `k = 3`.
+
+**Note:** The exact number of comparisons for the Min Heap approach depends on the implementation and the way comparisons are counted. Use the comparison count printed by your C program.
 
 ## Conclusion
 Both K-way merging using a Min Heap and pairwise merging successfully merge the three sorted transaction lists into a single sorted list. Pairwise merging is simpler to implement and works efficiently for a small number of lists. The Min Heap approach maintains at most one active element from each list and performs merging in O(n log k) time with O(k) auxiliary heap space. As the number of sorted files increases, the Min Heap K-way merge is more scalable because it efficiently selects the smallest element among all active lists without repeatedly merging large intermediate lists. Therefore, K-way merging using a Min Heap is a suitable approach for applications involving a large number of sorted files.
